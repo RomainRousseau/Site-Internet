@@ -35,6 +35,7 @@
     ##
     RewriteCond %{REQUEST_FILENAME} !-f
     # RewriteCond %{HTTP_REFERER}
-    RewriteRule ^(.*)$ http://leadofsound/\#!page-$1 [R=301,L]
+    # RewriteRule ^(.*)$ http://leadofsound/\#!page-$1 [R=301,L]
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}/\#!page-$1 [R=301,L]
 
 </IfModule>

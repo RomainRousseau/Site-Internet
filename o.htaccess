@@ -36,6 +36,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     # RewriteRule ^ index.php [L]
     # RewriteRule ^/#!page-(.*) https://%{SERVER_NAME}/$1 [R,L]
-    RewriteRule ^(.*)$ http://leadofsound/\#!page-$1 [R=301,L]
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}/\#!page-$1 [R=301,L]
 
 </IfModule>
