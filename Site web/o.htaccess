@@ -1,0 +1,41 @@
+<IfModule mod_rewrite.c>
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    ##
+    ## Uncomment following lines to force HTTPS.
+    ##
+    # RewriteCond %{HTTPS} off
+    # RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
+
+    ##
+    ## Black listed folders
+    #
+    # RewriteRule ^dossierBlackListed/.* index.php [L,NC]
+
+    ##
+    ## White listed folders
+    ##
+    # RewriteCond %{REQUEST_FILENAME} -f
+    # RewriteCond %{REQUEST_FILENAME} !/storage/uploads/.*
+    
+    ##
+    ## Block all PHP files, except index
+    ##
+    ## RewriteCond %{REQUEST_FILENAME} -f
+    ## RewriteCond %{REQUEST_FILENAME} \.php$
+    ## RewriteRule !^index.php index.php [L,NC]
+
+    ##
+    ## Standard routes
+    ##
+    RewriteCond %{REQUEST_FILENAME} !-f
+    # RewriteCond %{HTTP_REFERER}
+    # RewriteRule ^(.*)$ http://leadofsound/\#!page-$1 [R=301,L]
+    RewriteRule ^(.*)$ https://%{SERVER_NAME}/\#!page-$1 [R=301,L]
+
+</IfModule>
