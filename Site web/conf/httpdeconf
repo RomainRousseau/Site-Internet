@@ -1,0 +1,66 @@
+Alias /bitnami/ "/opt/lampp/apache2/htdocs/"
+Alias /bitnami "/opt/lampp/apache2/htdocs"
+
+<Directory "/opt/lampp/apache2/htdocs">
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+</Directory>
+
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    DocumentRoot "/opt/lampp/htdocs"
+    ServerName localhost
+    ErrorLog "logs/localhost-error_log"
+    CustomLog "logs/localhost-access_log" common
+    <Directory "/opt/lampp/htdocs">
+        Options FollowSymLinks Indexes
+        AllowOverride All
+        Order deny,allow
+        allow from All
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@sitetest
+    DocumentRoot "/opt/lampp/htdocs/sitetest"
+    ServerName sitetest
+    ErrorLog "logs/sitetest-error_log"
+    CustomLog "logs/sitetest-access_log" common
+    <Directory "/opt/lampp/htdocs/sitetest">
+        Options FollowSymLinks Indexes
+        AllowOverride All
+        Order deny,allow
+        allow from All
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@sitetest
+    DocumentRoot "/opt/lampp/htdocs/los"
+    ServerName los
+    ErrorLog "logs/sitetest-error_log"
+    CustomLog "logs/sitetest-access_log" common
+    <Directory "/opt/lampp/htdocs/los">
+        Options FollowSymLinks Indexes
+        AllowOverride All
+        Order deny,allow
+        allow from All
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@sitetest
+    DocumentRoot "/opt/lampp/htdocs/test"
+    ServerName test
+    ErrorLog "logs/sitetest-error_log"
+    CustomLog "logs/sitetest-access_log" common
+    <Directory "/opt/lampp/htdocs/test">
+        Options FollowSymLinks Indexes
+        AllowOverride All
+        Order deny,allow
+        allow from All
+    </Directory>
+</VirtualHost>
